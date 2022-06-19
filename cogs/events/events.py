@@ -8,7 +8,7 @@ class Events(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @tasks.loop(minutes=3)
+    @tasks.loop(minutes=2)
     async def randomword(self):
         palavras = ['relógio', 'paralelepipedo', 'câmera', 'controle', 'container', 'televisão', 'papel', 'copo', 'água', 'mouse']
         palavra = random.choice(palavras)
@@ -19,15 +19,15 @@ class Events(commands.Cog):
             return message.content == palavra
         while True:
             try:    
-                message = await self.client.wait_for('message', timeout=3, check=check)
+                message = await self.client.wait_for('message', timeout=4, check=check)
             except asyncio.TimeoutError:
                 return await msg.delete()
             else:
-                embed=discord.Embed(title="Recebeu", description="2300 coins", color=0x00ff4c)
+                embed=discord.Embed(title="Recebeu", description="500 coins", color=0x00ff4c)
                 embed.set_author(name=message.author.name)
                 embed.add_field(name="Acertou a palavra", value=palavra, inline=False)
                 await message.channel.send(embed=embed)
-                await update_user(message.guild.id, message.author.id, 'coins', 2300, 'inc')
+                await update_user(message.guild.id, message.author.id, 'coins', 500, 'inc')
 
     @tasks.loop(hours=2)
     async def CDI(self):
