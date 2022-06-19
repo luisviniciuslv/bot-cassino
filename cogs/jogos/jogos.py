@@ -17,7 +17,7 @@ class Jogos(commands.Cog):
             await ctx.channel.send(f"você não pode apostar menos que 1 coin")
             return
         await update_user(ctx.guild.id,ctx.author.id,'valor_apostado', aposta, 'inc')
-        emojis = ['x3','💎', '🪙', 'x1000', '🔥', 'x3500', 'x0.5', '💀', '⚡','🏴‍☠️','☠️', aposta*2, round(aposta/2), 500, 100]
+        emojis = ['x3','💎', '🪙', 'x1000', '🔥', 'x3500', 'x0.5', '💀', '⚡','🏴‍☠️','☠️']
         bobina = [random.choice(emojis), random.choice(emojis), random.choice(emojis)]
         first_embed=discord.Embed(title="Caça-níquel", color=0xffdd00)
         first_embed.set_author(name=ctx.author.name)
@@ -42,16 +42,6 @@ class Jogos(commands.Cog):
         new_embed.add_field(name="Valor apostado", value=aposta, inline=False)
         new_embed.add_field(name="Girando bobinas", value=f'{bobina[0]}---{bobina[1]}---{bobina[2]}', inline=False) 
         await msg.edit(embed=new_embed)
-        if type(bobina[0]) == int and type(bobina[1]) == int and type(bobina[2]) == int:
-            new_embed=discord.Embed(title="Caça-níquel", color=0xffdd00)
-            new_embed.set_author(name=ctx.author.name)
-            new_embed.add_field(name="Valor apostado", value=aposta, inline=False)
-            new_embed.add_field(name="Girando bobinas", value=f'**{bobina[0]}**$---**{bobina[1]}$**---**{bobina[2]}$**', inline=False) 
-            new_embed.add_field(name="Valor ganho", value=bobina[0]+bobina[1]+bobina[3], inline=False)
-            await update_user(ctx.guild.id,ctx.author.id,'coins', -aposta, 'inc')
-            await update_user(ctx.guild.id,ctx.author.id,'coins', bobina[0]+bobina[1]+bobina[3], 'inc')
-            await update_user(ctx.guild.id,ctx.author.id,'valor_ganho', bobina[0]+bobina[1]+bobina[3], 'inc')
-            await msg.edit(embed=new_embed)
         if bobina.count('x1000') == 3:
             new_embed=discord.Embed(title="Caça-níquel", color=0x2bff00)
             new_embed.set_author(name=ctx.author.name)
