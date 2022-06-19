@@ -16,6 +16,7 @@ class Jogos(commands.Cog):
         if aposta < 1:
             await ctx.channel.send(f"você não pode apostar menos que 1 coin")
             return
+        await update_user(ctx.guild.id,ctx.author.id,'coins', -aposta, 'inc')
         await update_user(ctx.guild.id,ctx.author.id,'valor_apostado', aposta, 'inc')
         emojis = ['x3','💎', '🪙', 'x1000', '🔥', 'x3500', 'x0.5', '💀', '⚡','🏴‍☠️','☠️']
         bobina = [random.choice(emojis), random.choice(emojis), random.choice(emojis)]
@@ -50,7 +51,7 @@ class Jogos(commands.Cog):
             new_embed.add_field(name="Valor ganho", value=aposta*1000, inline=False)
             await update_user(ctx.guild.id,ctx.author.id,'coins', aposta*1000, 'inc')
             await update_user(ctx.guild.id,ctx.author.id,'valor_ganho',aposta*1000, 'inc')
-            
+            await update_user(ctx.guild.id,ctx.author.id,'coins', aposta, 'inc')
             await msg.edit(embed=new_embed)
             return
         if bobina.count('💎') == 3:
@@ -61,6 +62,7 @@ class Jogos(commands.Cog):
             new_embed.add_field(name="Valor ganho", value=aposta*100, inline=False)
             await update_user(ctx.guild.id,ctx.author.id,'coins', aposta*100, 'inc')
             await update_user(ctx.guild.id,ctx.author.id,'valor_ganho',aposta*100, 'inc')
+            await update_user(ctx.guild.id,ctx.author.id,'coins', aposta, 'inc')
             await msg.edit(embed=new_embed)
             return
         if bobina.count('🪙') == 3:
@@ -71,6 +73,7 @@ class Jogos(commands.Cog):
             new_embed.add_field(name="Valor ganho", value=aposta*10, inline=False)
             await update_user(ctx.guild.id,ctx.author.id,'coins', aposta*10, 'inc')
             await update_user(ctx.guild.id,ctx.author.id,'valor_ganho',aposta*10, 'inc')
+            await update_user(ctx.guild.id,ctx.author.id,'coins', aposta, 'inc')
             await msg.edit(embed=new_embed)
             return
         if bobina.count('🔥') >= 2:
@@ -80,7 +83,8 @@ class Jogos(commands.Cog):
             new_embed.add_field(name="Girando bobinas", value=f'{bobina[0]}---{bobina[1]}---{bobina[2]}', inline=False) 
             new_embed.add_field(name="Valor ganho", value=aposta*5, inline=False)
             await update_user(ctx.guild.id,ctx.author.id,'coins', aposta*5, 'inc')
-            await update_user(ctx.guild.id,ctx.author.id,'valor_ganho',aposta*5, 'inc')
+            await update_user(ctx.guild.id,ctx.author.id,'valor_ganho',aposta*5, 'inc
+            await update_user(ctx.guild.id,ctx.author.id,'coins', aposta, 'inc')
             await msg.edit(embed=new_embed)
             return
         if bobina.count('x3') >= 2:
@@ -91,6 +95,7 @@ class Jogos(commands.Cog):
             new_embed.add_field(name="Valor ganho", value=aposta*3, inline=False)
             await update_user(ctx.guild.id,ctx.author.id,'coins', aposta*3, 'inc')
             await update_user(ctx.guild.id,ctx.author.id,'valor_ganho',aposta*3, 'inc')
+            await update_user(ctx.guild.id,ctx.author.id,'coins', aposta, 'inc')
             await msg.edit(embed=new_embed)
             return
         if bobina.count('x3500') == 3:
@@ -101,6 +106,7 @@ class Jogos(commands.Cog):
             new_embed.add_field(name="Valor ganho", value=aposta*3500, inline=False)
             await update_user(ctx.guild.id,ctx.author.id,'coins', aposta*3500, 'inc')
             await update_user(ctx.guild.id,ctx.author.id,'valor_ganho',aposta*3500, 'inc')
+            await update_user(ctx.guild.id,ctx.author.id,'coins', aposta, 'inc')                  
             await msg.edit(embed=new_embed)
             return
         if bobina.count('x0.5') == 3:
@@ -111,7 +117,8 @@ class Jogos(commands.Cog):
             new_embed.add_field(name="Valor ganho", value=round(aposta*0.5), inline=False)
             await update_user(ctx.guild.id,ctx.author.id,'coins', round(aposta*0.5), 'inc')
             await update_user(ctx.guild.id,ctx.author.id,'coins', -aposta, 'inc')
-            await update_user(ctx.guild.id,ctx.author.id,'valor_perdido', aposta*0.5, 'inc')
+            await update_user(ctx.guild.id,ctx.author.id,'valor_perdido', aposta*0.5, 'inc
+            await update_user(ctx.guild.id,ctx.author.id,'coins', aposta, 'inc')                  
             await msg.edit(embed=new_embed)
         else:
             new_embed=discord.Embed(title="Caça-níquel", color=0xffdd00)
@@ -120,7 +127,7 @@ class Jogos(commands.Cog):
             new_embed.add_field(name="Girando bobinas", value=f'{bobina[0]}---{bobina[1]}---{bobina[2]}', inline=False) 
             new_embed.add_field(name="Valor ganho", value='0', inline=False)
             await update_user(ctx.guild.id,ctx.author.id,'valor_perdido', aposta, 'inc')
-            await update_user(ctx.guild.id,ctx.author.id,'coins', -aposta, 'inc')
+            
 
             await msg.edit(embed=new_embed)
             return
