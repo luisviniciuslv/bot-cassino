@@ -46,7 +46,7 @@ class Jogos(commands.Cog):
             new_embed=discord.Embed(title="Caça-níquel", color=0xffdd00)
             new_embed.set_author(name=ctx.author.name)
             new_embed.add_field(name="Valor apostado", value=aposta, inline=False)
-            new_embed.add_field(name="Girando bobinas", value=f'{**bobina[0]**$}---{**bobina[1]$**}---{**bobina[2]$**}', inline=False) 
+            new_embed.add_field(name="Girando bobinas", value=f'**{bobina[0]}**$---**{bobina[1]}$**---**{bobina[2]}$**', inline=False) 
             new_embed.add_field(name="Valor ganho", value=bobina[0]+bobina[1]+bobina[3], inline=False)
             await update_user(ctx.guild.id,ctx.author.id,'coins', -aposta, 'inc')
             await update_user(ctx.guild.id,ctx.author.id,'coins', bobina[0]+bobina[1]+bobina[3], 'inc')
