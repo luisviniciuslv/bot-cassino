@@ -16,7 +16,7 @@ class Events(commands.Cog):
 
         msg = await channel.send(palavra)
         def check(message):
-            return message.content == palavra
+            return message.content.lower() == palavra
         while True:
             try:    
                 message = await self.client.wait_for('message', timeout=4, check=check)
