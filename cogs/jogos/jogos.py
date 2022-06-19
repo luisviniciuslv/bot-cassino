@@ -17,7 +17,7 @@ class Jogos(commands.Cog):
             await ctx.channel.send(f"você não pode apostar menos que 1 coin")
             return
         await update_user(ctx.guild.id,ctx.author.id,'valor_apostado', aposta, 'inc')
-        emojis = ['x3''💎', '🪙', 'x1000', '🔥', 'x3500', 'x0.5', '💀', '⚡','🏴‍☠️','☠️']
+        emojis = ['x3','💎', '🪙', 'x1000', '🔥', 'x3500', 'x0.5', '💀', '⚡','🏴‍☠️','☠️']
         bobina = [random.choice(emojis), random.choice(emojis), random.choice(emojis)]
         first_embed=discord.Embed(title="Caça-níquel", color=0xffdd00)
         first_embed.set_author(name=ctx.author.name)
