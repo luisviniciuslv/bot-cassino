@@ -1,6 +1,5 @@
 discord
 pymongo
 python-dotenv
-pymongo
 dnspython
 pytz
