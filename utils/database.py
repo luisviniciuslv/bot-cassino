@@ -10,6 +10,14 @@ async def findall():
     collection = db[str(933020401632677888)]
     return collection.find({})
 
+async def createguild():
+    collection = db[str(933020401632677888)]
+    if not collection.find_one({'_id': 0}):
+        collection.insert_one({'_id': 0, 'criptocoin': 0.1})
+        print('servidor criado!')
+    else:
+        print('servidor já criado')
+
 async def change_prefix(guildID : int, nPrefix : str):
   collection = db[str(guildID)]
   prefix = collection.find_one({'_id': 0})['prefix']

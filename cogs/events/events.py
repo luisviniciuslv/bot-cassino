@@ -2,7 +2,7 @@ import asyncio
 import random
 from discord.ext import commands, tasks
 import discord
-from utils.database import user_get, update_user, findall
+from utils.database import user_get, update_user, findall, createguild
 
 class Events(commands.Cog):
     def __init__(self, client):
@@ -47,6 +47,7 @@ class Events(commands.Cog):
         print('@================@')
         self.randomword.start()
         self.CDI.start()
+        # await createguild()
         while True:
             await self.client.change_presence(status=discord.Status.online, activity=discord.Game(name="so", type=3))
             
