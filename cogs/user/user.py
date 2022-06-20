@@ -41,6 +41,8 @@ class User(commands.Cog):
             if int(str(Last_hour).split(' ')[0].split('-')[1]) > int(str(current_time).split(' ')[0].split('-')[1]):
                 return 'max'
             #day
+            if int(str(Last_hour).split(' ')[0].split('-')[2]) + int(str(current_time).split(' ')[0].split('-')[2]) >= 2:
+                return 'max'
             if int(str(Last_hour).split(' ')[0].split('-')[2]) > int(str(current_time).split(' ')[0].split('-')[2]):
                 if str(Last_hour).split(' ')[1].split(':')[0] < str(current_time).split(' ')[1].split(':')[0]:
                     horas_trabalhadas = (int(str(current_time).split(' ')[1].split(':')[1]) + 24) - int(str(Last_hour).split(' ')[1].split(':')[1])
