@@ -46,13 +46,13 @@ class User(commands.Cog):
             if int(str(Last_hour).split(' ')[0].split('-')[2]) > int(str(current_time).split(' ')[0].split('-')[2]):
                 if str(Last_hour).split(' ')[1].split(':')[0] < str(current_time).split(' ')[1].split(':')[0]:
                     horas_trabalhadas = (int(str(current_time).split(' ')[1].split(':')[1]) + 24) - int(str(Last_hour).split(' ')[1].split(':')[1])
-                    return round(horas_trabalhadas * money_hour/60)
+                    return round(horas_trabalhadas * money_hour/24)
                 else:
                     return 'max'
             #hour negative
             if str(Last_hour).split(' ')[1].split(':')[0] < str(current_time).split(' ')[1].split(':')[0]:
                 minutos_trabalhados = (int(str(current_time).split(' ')[1].split(':')[1]) + 60) - int(str(Last_hour).split(' ')[1].split(':')[1])
-                return round(minutos_trabalhados * money_hour/60)
+                return round(minutos_trabalhados * money_hour/24)
             #hour
             if int(str(Last_hour).split(' ')[1].split(':')[0]) > int(str(current_time).split(' ')[1].split(':')[0]):
                 horas_trabalhadas = int(str(current_time).split(' ')[1].split(':')[0]) - int(str(Last_hour).split(' ')[1].split(':')[0])
