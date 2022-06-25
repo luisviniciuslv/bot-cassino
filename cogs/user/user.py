@@ -41,7 +41,7 @@ class User(commands.Cog):
             if int(str(Last_hour).split(' ')[0].split('-')[1]) > int(str(current_time).split(' ')[0].split('-')[1]):
                 return 'max'
             #day
-            if int(str(Last_hour).split(' ')[0].split('-')[2]) + int(str(current_time).split(' ')[0].split('-')[2]) >= 2:
+            if int(str(current_time).split(' ')[0].split('-')[2]) + int(str(Last_hour).split(' ')[0].split('-')[2]) >= 2:
                 return 'max'
         
             #hour negative
