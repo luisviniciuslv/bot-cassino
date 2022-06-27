@@ -2,7 +2,7 @@ import asyncio
 import random
 import discord
 from discord.ext import commands
-
+from utils.funcoes import level
 from utils.database import user_get, update_user
 
 class Battle(commands.Cog):
@@ -86,6 +86,8 @@ class Battle(commands.Cog):
         embed.add_field(name=f'vencedor', value=f"**{cara.name}**", inline=False)
         embed.add_field(name='Valor ganho', value=f"**{qtdcoins}**", inline=False)
         await update_user(ctx.guild.id, cara.id, 'coins', qtdcoins*2, 'inc')
+        await level(ctx.guild.id, ctx.cara.id, qtdcoins*2)
+        
         await ctx.channel.send(embed=embed)
         
     else:
@@ -93,6 +95,7 @@ class Battle(commands.Cog):
         embed.add_field(name=f'vencedor', value=f"**{coroa.name}**", inline=False)
         embed.add_field(name=f'Valor ganho', value=f"**{qtdcoins}**", inline=False)
         await update_user(ctx.guild.id, coroa.id, 'coins', qtdcoins*2, 'inc')
+        await level(ctx.guild.id, coroa.id, qtdcoins*2) 
         await ctx.channel.send(embed=embed)
             
 def setup(client):
