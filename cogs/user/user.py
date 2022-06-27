@@ -35,10 +35,10 @@ class User(commands.Cog):
             current_time = datetime.datetime.now(pytz.timezone('America/Santarem')).replace(microsecond=0, tzinfo=None)
             Last_hour = await user_get(user.guild.id, user.author.id, 'Last_time')
             #year
-            if int(str(Last_hour).split(' ')[0].split('-')[0]) > int(str(current_time).split(' ')[0].split('-')[0]):
+            if int(str(current_time).split(' ')[0].split('-')[0]) > int(str(Last_hour).split(' ')[0].split('-')[0]):
                 return 'max'
             #mouth
-            if int(str(Last_hour).split(' ')[0].split('-')[1]) > int(str(current_time).split(' ')[0].split('-')[1]):
+            if int(str(current_time).split(' ')[0].split('-')[1]) > int(str(Last_hour).split(' ')[0].split('-')[1]):
                 return 'max'
             #day
             if int(str(current_time).split(' ')[0].split('-')[2]) - int(str(Last_hour).split(' ')[0].split('-')[2]) >= 2:
@@ -50,7 +50,7 @@ class User(commands.Cog):
                 return round(minutos_trabalhados * money_hour/24)
             #hour
             if int(str(Last_hour).split(' ')[1].split(':')[0]) > int(str(current_time).split(' ')[1].split(':')[0]):
-                horas_trabalhadas = int(str(current_time).split(' ')[1].split(':')[0]) - int(str(Last_hour).split(' ')[1].split(':')[0])
+                horas_trabalhadas = int(str(Last_hour).split(' ')[1].split(':')[0]) + 24 - int(str(Last_hour).split(' ')[1].split(':')[0])
                 minutos_trabalhados = (int(str(current_time).split(' ')[1].split(':')[1]) + 60) - int(str(Last_hour).split(' ')[1].split(':')[1])
                 dinheiro = round((money_hour * horas_trabalhadas) + (money_hour * minutos_trabalhados/60))
                 return dinheiro
@@ -95,8 +95,8 @@ class User(commands.Cog):
         if 'vendinha' in empresas:
             if await fatura(200, ctx) == 'max':
                 valuelocal = 200*24
-                embed.add_field(name="Valor recebido da vendinha: ", value=f'{valuelocal}$', inline=False)
                 value+=valuelocal
+                embed.add_field(name="Valor recebido da vendinha: ", value=f'{valuelocal}$', inline=False)
             else:
                 valuelocal = int(await fatura(200,ctx))
                 value += valuelocal
@@ -105,8 +105,8 @@ class User(commands.Cog):
         if 'mercado' in empresas:
             if await fatura(500,ctx) == 'max':
                 valuelocal = 500*24
-                embed.add_field(name="Valor recebido do mercado:", value=f'{valuelocal}$', inline=False)
                 value+=valuelocal
+                embed.add_field(name="Valor recebido do mercado:", value=f'{valuelocal}$', inline=False)
             else:
                 valuelocal = int(await fatura(500,ctx))
                 value += valuelocal
@@ -125,8 +125,8 @@ class User(commands.Cog):
         if 'fazenda' in empresas:
             if await fatura(500,ctx) == 'max':
                 valuelocal = 1000*24
-                embed.add_field(name="Valor recebido da fazenda:", value=f'{valuelocal}$', inline=False)
                 value+=valuelocal
+                embed.add_field(name="Valor recebido da fazenda:", value=f'{valuelocal}$', inline=False)
             else:
                 valuelocal = int(await fatura(1000,ctx))
                 value += valuelocal
@@ -134,8 +134,8 @@ class User(commands.Cog):
         if 'concessionaria' in empresas:
             if await fatura(500,ctx) == 'max':
                 valuelocal = 2000*24
-                embed.add_field(name="Valor recebido da concessionaria:", value=f'{valuelocal}$', inline=False)
                 value += valuelocal
+                embed.add_field(name="Valor recebido da concessionaria:", value=f'{valuelocal}$', inline=False)
             else:
                 valuelocal = int(await fatura(2000,ctx))
                 value += valuelocal

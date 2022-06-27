@@ -2,8 +2,7 @@ import asyncio
 from discord.ext import commands
 import discord
 import random
-from utils.database import user_get, update_user, get_guild_ranking
-import time
+from utils.database import user_get, update_user
 
 class Jogos(commands.Cog):
     def __init__(self, client):
