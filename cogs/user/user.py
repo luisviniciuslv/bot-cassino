@@ -10,7 +10,7 @@ from utils.database import user_get, update_user, get_guild_ranking
 class User(commands.Cog):
     def __init__(self, client):
         self.client = client
-    
+
     @commands.command()
     async def doar(self, ctx, valor:int, member:discord.Member):
         if valor <= 0:

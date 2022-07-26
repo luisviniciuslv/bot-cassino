@@ -72,7 +72,6 @@ class Battle(commands.Cog):
         await update_user(ctx.guild.id, member.id, 'valor_apostado', qtdcoins, 'inc')
         await update_user(ctx.guild.id, ctx.author.id, 'valor_apostado', qtdcoins, 'inc')
         await asyncio.sleep(5)
-        
 
         if escolha == "cara":
             coroa = member

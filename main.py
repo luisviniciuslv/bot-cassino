@@ -44,4 +44,7 @@ async def on_command_error(ctx, error):
       msg = "Espere {:.0f}s para resgatar novamente".format(error.retry_after)
       await ctx.send(msg)
 
-client.run(os.getenv("bot_token"))
+client.run("OTg2NDMzNDMzMjU5NjA2MTU2.G8DgmT.ym6bWlU0rFU0ScOtj1sMFHzHp1JFEJJnUAtKyw")
+#perae
+#KKKKKKKKKKKK NAMORADA OPRESSORA EH ISSO?
+#sim lekkkkk
