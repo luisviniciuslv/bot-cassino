@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
+from utils.database import update_user, user_get
 
-from utils.database import user_get, update_user
 
 class Empresas(commands.Cog):
   def __init__(self, client):
@@ -104,8 +104,6 @@ class Empresas(commands.Cog):
       return
     else:
       await ctx.channel.send('Essa empresa não existe para ser comprada')
-
-  
 
 def setup(client):
   client.add_cog(Empresas(client))

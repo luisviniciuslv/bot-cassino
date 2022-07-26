@@ -197,11 +197,17 @@ class User(commands.Cog):
             embed = discord.Embed(color=0xFFD488)
             embed.set_thumbnail(url=user.avatar_url)
             embed.set_author(name=user.name, icon_url=user.avatar_url)
+            embed.add_field(name='Nivel', value=f"{await user_get(ctx.guild.id, user.id, 'lvl')}", inline=False)
+            embed.add_field(name='xp', value=f"{await user_get(ctx.guild.id, user.id, 'xp')}/{await user_get(ctx.guild.id, user.id, 'lvl')*20000}", inline=False)
+            embed.add_field(name='▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃', value='ㅤ', inline=False)
             embed.add_field(name='Carteira', value=f"{await user_get(ctx.guild.id, user.id, 'coins')}$", inline=False)
             embed.add_field(name='Banco', value=f"{await user_get(ctx.guild.id, user.id, 'banco')}$", inline=False)
+            embed.add_field(name='▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃', value='ㅤ', inline=False)
             embed.add_field(name='Quantia total apostada', value=f"{await user_get(ctx.guild.id, user.id, 'valor_apostado')}$", inline=False)
             embed.add_field(name='Quantia ganha em apostas', value=f"{await user_get(ctx.guild.id, user.id, 'valor_ganho')}$", inline=False)
             embed.add_field(name='Quantia perdida em apostas', value=f"{await user_get(ctx.guild.id, user.id, 'valor_perdido')}$", inline=False)
+            embed.add_field(name='▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃', value='ㅤ', inline=False)
+            embed.add_field(name='Empresas compradas por', value=f'{user.name}', inline=False)
             aux = 0
             if await user_get(ctx.guild.id, user.id, 'empresas') == []:
                 pass

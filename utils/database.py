@@ -89,5 +89,3 @@ async def get_guild_ranking(bot, guildId : int):
         if aux > 10: return content
 
     return content
-
-  
