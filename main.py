@@ -33,14 +33,17 @@ async def on_command_error(ctx, error):
   if isinstance(error, commands.errors.MissingRequiredArgument):
       msg = "está faltando informações, digite !help para consultar os comandos"
       await ctx.send(msg)
+
   if isinstance(error, commands.errors.CommandOnCooldown):
       tempo = '{:.0f}'.format(error.retry_after)
       tempo = int(tempo)
+
       if tempo > 60:
         tempo = tempo/60
         msg = f"Espere {str(tempo).split('.')[0]} minutos para resgatar novamente"
         await ctx.send(msg)
         return
+        
       msg = "Espere {:.0f}s para resgatar novamente".format(error.retry_after)
       await ctx.send(msg)
 
