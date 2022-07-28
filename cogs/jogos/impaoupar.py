@@ -1,10 +1,13 @@
 import asyncio
-from discord.ext import commands
-import discord
 import random
-from utils.database import user_get, update_user
+
+import discord
+from discord.ext import commands
+from utils.database import update_user, user_get
 from utils.funcoes import level
-class Jogos(commands.Cog):
+
+
+class ImparouPar(commands.Cog):
     def __init__(self, client):
         self.client = client
 
@@ -100,4 +103,4 @@ class Jogos(commands.Cog):
     
 
 def setup(client):
-  client.add_cog(Jogos(client))
+  client.add_cog(ImparouPar(client))
