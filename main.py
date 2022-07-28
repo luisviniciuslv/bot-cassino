@@ -48,6 +48,3 @@ async def on_command_error(ctx, error):
       await ctx.send(msg)
 
 client.run(os.getenv('bot_token'))
-#perae
-#KKKKKKKKKKKK NAMORADA OPRESSORA EH ISSO?
-#sim lekkkkk
