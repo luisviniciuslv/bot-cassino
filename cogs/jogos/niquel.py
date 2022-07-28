@@ -169,7 +169,7 @@ class Niquel(commands.Cog):
           new_embed.add_field(name="Valor apostado", value=aposta, inline=False)
           new_embed.add_field(name="Girando bobinas", value=f'{bobina[0]}---{bobina[1]}---{bobina[2]}', inline=False) 
           new_embed.add_field(name="Valor ganho", value='0', inline=False)
-
+    
           await update_user(ctx.guild.id,ctx.author.id,'valor_perdido', aposta, 'inc')
           await msg.edit(embed=new_embed)
           
