@@ -1,10 +1,11 @@
 import datetime
-from discord.ext import commands
-import discord
 import random
 
+import discord
 import pytz
-from utils.database import user_get, update_user, get_guild_ranking
+from discord.ext import commands
+from utils.database import get_guild_ranking, update_user, user_get
+
 # funções
 
 class User(commands.Cog):
